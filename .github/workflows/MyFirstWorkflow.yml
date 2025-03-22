@@ -20,8 +20,9 @@ jobs:
     steps:
       - name: Greet the user
         run: | # starts a multiline block
-          echo "Hello world from ${{ github.actor }}"
+          echo "Hello ${{ vars.WHO_TO_GREET }} from ${{ github.actor }}"
           echo "Current branch is ${{ github.ref }}"
+          echo "My secret is ${{ secrets.MY_SECRET }}."
         shell: bash # optional. bash is default for non-windows platforms
       - name: Checkout
         uses: actions/checkout@v4.2.2 #using github actions
