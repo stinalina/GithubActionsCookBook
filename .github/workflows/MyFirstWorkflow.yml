@@ -21,6 +21,6 @@ jobs:
         shell: bash # optional. bash is default for non-windows platforms
       - name: Checkout
         uses: actions/checkout@v4.2.2
-      - name: display files
+      - name: display files after checking out
         run: tree
         
