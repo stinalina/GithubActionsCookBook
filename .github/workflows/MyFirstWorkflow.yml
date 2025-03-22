@@ -24,7 +24,7 @@ jobs:
           echo "Current branch is ${{ github.ref }}"
         shell: bash # optional. bash is default for non-windows platforms
       - name: Checkout
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v4.2.2 #using github actions
       - name: display files after checking out
         run: tree
         
