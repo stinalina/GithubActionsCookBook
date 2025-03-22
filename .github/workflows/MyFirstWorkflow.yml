@@ -29,3 +29,25 @@ jobs:
       - name: display files after checking out
         run: tree
         
+  Test:
+    runs-on: ubuntu-latest
+    environment: Test
+    needs: first_job
+    steps:
+     - run: echo "Hello ${{ vars.WHO_TO_GREET }} from ${{ github.actor }}"
+
+  Load-Test:
+    runs-on: ubuntu-latest
+    environment: Load-Test
+    needs: first_job
+    steps:
+     - run: echo "Hello ${{ vars.WHO_TO_GREET }} from ${{ github.actor }}"
+
+  Production:
+    runs-on: ubuntu-latest
+    environment: 
+      name: Production
+      url: https://writeabout.net
+    needs: [Test, Load-Test]
+    steps:
+     - run: echo "Hello ${{ vars.WHO_TO_GREET }} from ${{ github.actor }}"
