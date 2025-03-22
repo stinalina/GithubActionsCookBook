@@ -7,7 +7,11 @@ on: # triggers when the workflow should run
       - 'release/**'
     paths:
       - 'doc/**'
-  workflow_dispatch:
+  schedule:
+    #- cron: '*/15 * * * *'
+    #- cron: '0 9-17 * * *'
+    - cron: '0 2 * * FRI'
+  workflow_dispatch: # enable manual trigger by UI; you can use input here!
 
 jobs:
   first_job:
