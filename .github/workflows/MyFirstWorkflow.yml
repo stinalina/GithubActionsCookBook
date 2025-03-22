@@ -15,10 +15,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Greet the user
-      - run: | # starts a multiline block
+        run: | # starts a multiline block
           echo "Hello world from ${{ github..actor }}"
           echo "Current branch is ${{ github.ref }}"
-      - shell: bash # optional. bash is default for non-windows platforms
+        shell: bash # optional. bash is default for non-windows platforms
       - name: Checkout
         uses: actions/checkout@v4.2.2
-      - run: tree #display files in repo after checking them out
+      - name: display files
+        run: tree
+        
