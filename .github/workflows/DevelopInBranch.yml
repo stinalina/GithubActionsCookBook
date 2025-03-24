@@ -5,7 +5,7 @@ on: [pull_request, workflow_dispatch]
 jobs:
     job1:
         runs-on: ubuntu-latest
-        permissions:
+        permissions: # do always set the permissions your workflow needs!
             contents: read
             pull-requests: write
         steps:
@@ -16,4 +16,9 @@ jobs:
             - uses: actions/checkout@v4.1.0
             - uses: devops-actions/actionlint@v0.1.2
             - run: echo "${{ github.event.pull_request.title }}"
+            - run: |
+                echo "::debug::This is a debug message."
+                echo "::notice::This is a notice message."
+                echo "::warning::This is a warning message."
+                echo "::error::This is a error message."
             
