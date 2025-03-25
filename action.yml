@@ -1,0 +1,12 @@
+name: 'Docker Action Recipe'
+description: 'This workflow demonstrates how to consume input and run a docker container.'
+inputs:
+    who-to-greet:
+        description: 'Who to greet'
+        required: true
+        default: 'World'
+runs:
+    using: 'docker'
+    image: 'Dockerfile'
+    args:
+        - ${{ inputs.who-to-greet }}

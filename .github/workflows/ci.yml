@@ -1,0 +1,13 @@
+name: Action CI
+
+on: [push]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4.1.1
+      - name: Run my own container action
+        uses: ./ # Uses an action in the root directory; without the checkout this would not work
+        with:
+            who-to-greet: 'Mona the Octocat'
