@@ -1,3 +1,4 @@
+# this file can't be named differently
 name: 'Docker Action Recipe'
 description: 'This workflow demonstrates how to consume input and run a docker container.'
 inputs:
