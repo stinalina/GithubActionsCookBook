@@ -8,6 +8,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4.1.1
       - name: Run my own container action
+        id: my_container_action
         uses: ./ # Uses an action in the root directory; without the checkout this would not work
         with:
           who-to-greet: 'Mona the Octocat'
+      - name: Output the answer
+        run: echo "The answer is ${{ steps.my_container_action.outputs.answer }}"
+      - name: Test the container
+        if: ${{ steps.my_container_action.outputs.answer != '42' }}
+        run: |
+          echo "::error file=etrypoint.sh,line=4,title=Error in container:: The answer was not expected"
+          exit 1
