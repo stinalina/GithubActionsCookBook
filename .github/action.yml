@@ -1,6 +1,7 @@
 # this file can't be named differently
 name: 'Docker Action Recipe'
 description: 'This workflow demonstrates how to consume input and run a docker container.'
+
 inputs:
   who-to-greet:
     description: 'Who to greet'
@@ -9,6 +10,7 @@ inputs:
 outputs:
   answer:
     description: 'The answer to everything (always 42)'
+    
 runs:
   using: 'docker'
   image: 'Dockerfile'
