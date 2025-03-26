@@ -12,5 +12,7 @@ outputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  entrypoint: '/bin/sh'
   args: 
-    - ${{ inputs.who-to-greet }}
+    - '-c'
+    - 'echo "Hello ${{ inputs.who-to-greet }}!" && echo "answer=42" >> $GITHUB_OUTPUT'
